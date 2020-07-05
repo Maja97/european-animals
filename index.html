@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>European animals</title>
+	<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="//d3js.org/topojson.v1.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Ovo' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div id="modal" class="modal">
+		<div class="modal-details">
+			<span class="close">&times;</span>
+			<div class="grid-container"></div>
+		</div>
+	</div>
+
+	<div id="modalFilter" class="modalFilter">
+		<div class="modal-filter">
+			<span class="closeFilter">&times;</span>
+			<div class="filter">
+				<h2 id="results">Results</h2>
+				<hr>
+			</div>
+		</div>
+	</div>
+
+	<div class="left">
+		<form>
+			<img src="https://cdn.shopify.com/s/files/1/0096/6033/4165/files/004-parrot.png?133" width="36%">
+			<h2>Find interesting animals by region, species and conservation status</h2>
+			<input type="checkbox" id="showOnMap" name="showOnMap">
+			<label for="showOnMap">Highlight region on map</label><br><br>
+			<label for="region">Choose a region:</label>
+			<select id="region" name="region">
+				<option value="south"
+					title="Albania, Bosnia and Herzegovina, Croatia, Cyprus, Greece, Italy, Kosovo, Montenegro, North Macedonia, Serbia, Slovenia, Turkey">
+					Southern Europe</option>
+				<option value="north"
+					title="Denmark, Estonia, Finland, Iceland, Ireland, Latvia, Lithuania, Norway, Sweden, United Kingdom">
+					Northern Europe</option>
+				<option value="west"
+					title="Austria, Belgium, France, Germany, Luxembourg, Netherlands,Portugal, Spain, Switzerland">
+					Western Europe</option>
+				<option value="east"
+					title="Armenia, Azerbaijan, Belarus, Bulgaria, Czech Republic, Georgia, Hungary, Kazakhstan, Moldova, Poland, Romania, Russia, Slovakia, Ukraine">
+					Eastern Europe</option>
+			</select><br>
+			<label for="species">Species:</label>
+			<select id="species" name="species">
+				<option value="birds">Birds</option>
+				<option value="mammals">Mammals</option>
+				<option value="amphibians">Amphibians</option>
+				<option value="fish">Fish</option>
+				<option value="reptiles">Reptiles</option>
+			</select>
+			<label for="conservation">Conservation status:</label>
+			<select id="conservation" name="conservation">
+				<option value="en" title="Vulnerable, endangered or critically endangered">Threatened</option>
+				<option value="nt" title="Likely to become endangered in the near future">Near threatened</option>
+				<option value="lc" title="Lowest risk">Least concern</option>
+			</select>
+			<input onclick="filter()" type="button" value="Filter results">
+		</form>
+	</div>
+	<div id="container">
+		<button onclick="openInfo()" id="animalInfo">Show details</button>
+		<h1 class="countryName">Welcome</h1>
+	</div>
+	<script src="script.js"></script>
+</body>
+
+</html>
